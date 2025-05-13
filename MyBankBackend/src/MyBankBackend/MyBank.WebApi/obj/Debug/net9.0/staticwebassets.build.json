@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "7f/yVFBYuMvMhJp5XnTROjq5YrMSiWzTQAnG7SVh918=",
+  "Source": "MyBank.WebApi",
+  "BasePath": "_content/MyBank.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
