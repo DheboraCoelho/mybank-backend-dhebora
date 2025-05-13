@@ -1,8 +1,9 @@
-﻿using Domain.Core.Base;
-using Domain.Core.Enums;
-using Domain.Core.Models;
+﻿using MyBank.Domain.Entities;
+using MyBank.Domain.Enums;
+using MyBank.Domain.Exceptions;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using System.Transactions;
+using MyBank.Domain.ValueObjects;
 
 namespace Domain.Core.Entity
 {

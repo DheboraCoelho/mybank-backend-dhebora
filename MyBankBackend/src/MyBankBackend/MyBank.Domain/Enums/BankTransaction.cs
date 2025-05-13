@@ -1,4 +1,4 @@
-﻿using Domain.Core.Enums;
+﻿using MyBank.Domain.Enums;
 
 namespace Domain.Core.Entity
 {

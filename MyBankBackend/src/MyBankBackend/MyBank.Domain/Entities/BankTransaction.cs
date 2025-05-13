@@ -1,6 +1,6 @@
-﻿using Domain.Core.Enums;
+﻿using MyBank.Domain.Enums;
 
-namespace Domain.Core.Entity
+namespace MyBank.Domain.Entity
 {
     public record BankTransaction
     {
