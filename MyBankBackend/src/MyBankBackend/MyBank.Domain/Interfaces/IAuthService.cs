@@ -1,16 +1,22 @@
-﻿using Domain.Core.Entity;
-using Domain.Core.Models.Response;
+﻿
 using System.Transactions;
 
-namespace Domain.Core.Interfaces.Domain
+using MyBank.Domain.Entities;
+using MyBank.Domain.Models;
+
+namespace MyBank.Domain.Interfaces
 {
     public interface IAuthService
     {
-        Task<LoginResponse?> AuthenticateAsync(string cpf, string password);
-
-        Task<GetTokenResponse> GenerateJwtTokenAsync(string cpf, string password, string name);
-
-        Task<bool> ValidateCardPasswordAsync(string cpf, string cardPassword);
-
+        Task<AuthenticationResult> AuthenticateAsync(string cpf, string password);
+        Task<TokenResponse> GenerateTokenAsync(User user);
+        Task<bool> ValidateCredentialsAsync(string cpf, string secret);
     }
+}
+
+// Models para responses (coloque em Domain/Models/)
+namespace MyBank.Domain.Models
+{
+    public record AuthenticationResult(bool Success, User? User, string ErrorMessage = "");
+    public record TokenResponse(string Token, DateTime ExpiresAt);
 }

@@ -1,17 +1,22 @@
-﻿using Domain.Core.Entity;
-using Domain.Core.Enums;
-using Domain.Core.Models.Request;
-using Domain.Core.Models.Response;
-using Domain.UseCases.PIX.InitiatePixPayment;
+﻿using MyBank.Domain.Entities;
+using MyBank.Domain.Enums;
+using MyBank.Domain.Models;
+using MyBank.Domain.ValueObjects;
 
-namespace Domain.Core.Interfaces.Domain
+namespace MyBank.Domain.Interfaces
 {
     public interface IPixService
     {
-        Task<List<PixKey>> GetPixKeysAsync(string cpf);
-
-        Task<ExternalAccount> EvaluatePixKeysAsync(string key, PixKeyType type);
-        Task<PixPayResponse> InitiatePixTransferAsync(Account sourceAccout, TransactionInitiatePixPayment transaction);
-        Task<bool> ConfirmPixTransferAsync(string cpf, Guid transactionId);
+        Task<IEnumerable<PixKey>> GetKeysByAccountAsync(Guid accountId);
+        Task<PixEvaluationResult> EvaluateKeyAsync(string key, PixKeyType type);
+        Task<PixTransferResult> TransferAsync(Account source, Account destination, Amount amount);
+        Task<bool> ConfirmTransferAsync(Guid transactionId);
     }
+}
+
+// Models para responses (coloque em Domain/Models/)
+namespace MyBank.Domain.Models
+{
+    public record PixEvaluationResult(bool IsValid, ExternalAccount? Account = null);
+    public record PixTransferResult(bool Success, Guid TransactionId, string? ErrorMessage = null);
 }

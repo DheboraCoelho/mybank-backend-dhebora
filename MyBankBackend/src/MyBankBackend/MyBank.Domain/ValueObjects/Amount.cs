@@ -2,36 +2,77 @@
 using MyBank.Domain.Enums;
 using MyBank.Domain.Exceptions;
 
-namespace MyBank.Domain.ValueObjects;
+// Domain/ValueObjects/Amount.cs
+using MyBank.Domain.Enums;
+using MyBank.Domain.Exceptions;
 
-public record Amount
+namespace MyBank.Domain.ValueObjects
 {
-    public decimal Value { get; }
-    public CurrencyType Currency { get; }
-
-    public Amount(decimal value, CurrencyType currency)
+    public record Amount
     {
-        if (value < 0)
-            throw new DomainException("Valor não pode ser negativo");
+        public decimal Value { get; }
+        public CurrencyType Currency { get; }
 
-        Value = value;
-        Currency = currency;
-    }
+        // Construtor principal
+        public Amount(decimal value, CurrencyType currency)
+        {
+            if (value < 0)
+                throw new DomainException("O valor não pode ser negativo");
 
-    // Sobrecarga de operadores para facilitar operações matemáticas
-    public static Amount operator +(Amount a, Amount b)
-    {
-        if (a.Currency != b.Currency)
-            throw new DomainException("Moedas diferentes não podem ser somadas");
+            if (decimal.Round(value, 2) != value)
+                throw new DomainException("O valor deve ter no máximo 2 casas decimais");
 
-        return new Amount(a.Value + b.Value, a.Currency);
-    }
+            Value = value;
+            Currency = currency;
+        }
 
-    public static Amount operator -(Amount a, Amount b)
-    {
-        if (a.Currency != b.Currency)
-            throw new DomainException("Moedas diferentes não podem ser subtraídas");
+        // Métodos de negócio
+        public static Amount Zero(CurrencyType currency) => new(0m, currency);
 
-        return new Amount(a.Value - b.Value, a.Currency);
+        public bool IsZero() => Value == 0m;
+
+        // Sobrecarga de operadores
+        public static Amount operator +(Amount a, Amount b)
+        {
+            ValidateSameCurrency(a, b);
+            return new Amount(a.Value + b.Value, a.Currency);
+        }
+
+        public static Amount operator -(Amount a, Amount b)
+        {
+            ValidateSameCurrency(a, b);
+            return new Amount(a.Value - b.Value, a.Currency);
+        }
+
+        public static bool operator >(Amount a, Amount b)
+        {
+            ValidateSameCurrency(a, b);
+            return a.Value > b.Value;
+        }
+
+        public static bool operator <(Amount a, Amount b)
+        {
+            ValidateSameCurrency(a, b);
+            return a.Value < b.Value;
+        }
+
+        // Validação privada
+        private static void ValidateSameCurrency(Amount a, Amount b)
+        {
+            if (a.Currency != b.Currency)
+                throw new DomainException("Não é possível operar com valores de moedas diferentes");
+        }
+
+        // Formatação
+        public override string ToString()
+        {
+            return Currency switch
+            {
+                CurrencyType.BRL => $"R$ {Value:N2}",
+                CurrencyType.USD => $"US$ {Value:N2}",
+                CurrencyType.EUR => $"€ {Value:N2}",
+                _ => $"{Value:N2} {Currency}"
+            };
+        }
     }
 }

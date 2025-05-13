@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBank.Core.Interfaces
+using MyBank.Domain.Entities;
+using MyBank.Domain.ValueObjects;
+
+namespace MyBank.Domain.Interfaces
 {
-    internal class INotificationGateway
+    public interface INotificationSender
     {
+        Task SendTransferNotificationAsync(Account source, Account destination, Amount amount);
+        Task SendAuthenticationNotificationAsync(User user, string deviceInfo);
     }
 }

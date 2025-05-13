@@ -1,41 +1,62 @@
-﻿using MyBank.Domain.Entities;
+﻿using MyBank.Core.ValueObjects;
 using MyBank.Domain.Enums;
 using MyBank.Domain.Exceptions;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using System.Transactions;
 using MyBank.Domain.ValueObjects;
 
-namespace Domain.Core.Entity
+namespace MyBank.Domain.Entities
 {
-    public record ExternalAccount
+    public class ExternalAccount : EntityBase
     {
-        public int BankNumber { get; set; }
-        public int AgencyNumber { get; set; }
-        public string AccountNumber { get; set; }
-        public string Cpf { get; set; }
-        public List<PixKey> PixKeys { get; set; } = new List<PixKey>();
-    
-        public ExternalAccount()
+        // Propriedades
+        public int BankNumber { get; private set; }
+        public int AgencyNumber { get; private set; }
+        public string AccountNumber { get; private set; }
+        public Cpf Cpf { get; private set; } // Usando o Value Object Cpf
+        public List<PixKey> PixKeys { get; private set; } = new();
+
+        // Construtores
+        protected ExternalAccount() { } // Para ORM
+
+        public ExternalAccount(int bankNumber, int agencyNumber, string accountNumber, Cpf cpf)
         {
-            
+            Validate(bankNumber, agencyNumber, accountNumber);
+
+            BankNumber = bankNumber;
+            AgencyNumber = agencyNumber;
+            AccountNumber = accountNumber;
+            Cpf = cpf;
         }
 
-        public ExternalAccount(int bank, int agency, string account, string cpf, string key, PixKeyType type)
+        // Métodos de Domínio
+        public void AddPixKey(string key, PixKeyType type)
         {
-            this.BankNumber = bank;
-            this.AgencyNumber = agency;
-            this.AccountNumber = account;
-            this.Cpf = cpf;
-            this.PixKeys.Add(new PixKey(key, type));
+            if (PixKeys.Any(k => k.Key == key))
+                throw new DomainException("Chave PIX já cadastrada para esta conta");
+
+            PixKeys.Add(new PixKey(key, type, Id)); // Associa com o Id da ExternalAccount
         }
 
-        public ExternalAccount(int bank, int agency, string account, string cpf)
+        public void UpdateAccountInfo(int bankNumber, int agencyNumber, string accountNumber)
         {
-            this.BankNumber = bank;
-            this.AgencyNumber = agency;
-            this.AccountNumber = account;
-            this.Cpf = cpf;
-    
+            Validate(bankNumber, agencyNumber, accountNumber);
+
+            BankNumber = bankNumber;
+            AgencyNumber = agencyNumber;
+            AccountNumber = accountNumber;
+            UpdateTimestamps();
+        }
+
+        // Validações privadas
+        private void Validate(int bankNumber, int agencyNumber, string accountNumber)
+        {
+            if (bankNumber <= 0)
+                throw new DomainException("Número do banco inválido");
+
+            if (agencyNumber <= 0)
+                throw new DomainException("Número da agência inválido");
+
+            if (string.IsNullOrWhiteSpace(accountNumber))
+                throw new DomainException("Número da conta inválido");
         }
     }
 }

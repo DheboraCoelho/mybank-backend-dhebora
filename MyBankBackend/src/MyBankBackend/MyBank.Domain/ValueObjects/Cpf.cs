@@ -1,5 +1,5 @@
-﻿using Microsoft.Analytics.Interfaces;
-using Microsoft.Analytics.Types.Sql;
+﻿
+using MyBank.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,22 @@ using System.Text;
 
 namespace MyBank.Core.ValueObjects
 {
-    internal class Cpf
+    public record Cpf  // Note o 'public' aqui
     {
+        public string Value { get; }
+
+        public Cpf(string value)
+        {
+            if (!IsValid(value))
+                throw new DomainException("CPF inválido");
+
+            Value = value;
+        }
+
+        private static bool IsValid(string cpf)
+        {
+            // Implementação da validação de CPF
+            return true;
+        }
     }
 }
