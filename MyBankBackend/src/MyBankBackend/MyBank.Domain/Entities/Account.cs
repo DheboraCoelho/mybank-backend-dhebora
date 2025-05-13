@@ -1,78 +1,63 @@
-﻿using Domain.Core.Base;
-using Domain.Core.Enums;
-using Domain.Core.Models;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
+﻿// Domain/Entities/Account.cs
+using MyBank.Domain.Enums;
+using MyBank.Domain.Exceptions;
+using MyBank.Domain.ValueObjects;
+
+
+using MyBank.Domain.Entities;
+
 using System.Transactions;
 
-namespace Domain.Core.Entity
+namespace MyBank.Domain.Entities;
+
+public class Account : EntityBase
 {
-    public record Account
+    // Propriedades
+    public string Number { get; private set; }
+    public Amount Balance { get; private set; }
+    public Guid CustomerId { get; private set; }
+    public List<Transaction> Transactions { get; private set; } = new();
+    public List<PixKey> PixKeys { get; private set; } = new();
+
+    // Construtor
+    protected Account() { } // Para ORM
+
+    public Account(Guid customerId, string accountNumber, Amount initialBalance = null)
     {
-        public int BankNumber { get; set; }
-        public int AgencyNumber { get; set; }
-        public string AccountNumber { get; set; }
-        public string Cpf { get; set; }
-        public decimal Balance { get; set; }
-        public List<PixKey> PixKeys { get; set; } = new List<PixKey>();
-        public List<BankTransaction> Transactions { get; set; } = new List<BankTransaction>();
+        Id = Guid.NewGuid();
+        CustomerId = customerId;
+        Number = accountNumber;
+        Balance = initialBalance ?? new Amount(0, CurrencyType.BRL);
+        CreatedAt = DateTime.UtcNow;
+    }
 
-        public Account()
-        {
+    // Métodos de Domínio
+    public void Deposit(Amount amount)
+    {
+        if (amount.Value <= 0)
+            throw new DomainException("Valor do depósito deve ser positivo");
 
-        }
+        Balance = new Amount(Balance.Value + amount.Value, Balance.Currency);
+        Transactions.Add(new Transaction(amount.Value, TransactionType.Deposit, Id));
+    }
 
-        public Account(int bank, int agency, string account, string cpf, string key, PixKeyType type)
-        {
-            this.BankNumber = bank;
-            this.AgencyNumber = agency;
-            this.AccountNumber = account;
-            this.Cpf = cpf;
-            this.PixKeys.Add(new PixKey(key, type));
-        }
+    public void Withdraw(Amount amount)
+    {
+        if (amount.Value <= 0)
+            throw new DomainException("Valor do saque deve ser positivo");
 
+        if (Balance.Value < amount.Value)
+            throw new InsufficientBalanceException();
 
-        public bool IsValidCPF(string cpf)
-        {
-            if (string.IsNullOrWhiteSpace(cpf))
-                return false;
+        Balance = new Amount(Balance.Value - amount.Value, Balance.Currency);
+        Transactions.Add(new Transaction(amount.Value, TransactionType.Withdraw, Id));
+    }
 
-            cpf = new string(cpf.Where(char.IsDigit).ToArray());
+    public void AddPixKey(PixKey pixKey)
+    {
+        if (PixKeys.Any(k => k.Key == pixKey.Key))
+            throw new DomainException("Chave PIX já cadastrada");
 
-            if (cpf.Length != 11)
-                return false;
-
-            // Invalid known CPFs
-            var invalidCpfs = new[]
-            {
-            "00000000000", "11111111111", "22222222222",
-            "33333333333", "44444444444", "55555555555",
-            "66666666666", "77777777777", "88888888888",
-            "99999999999"  };
-
-            if (invalidCpfs.Contains(cpf))
-                return false;
-
-            // Validate first check digit
-            int sum = 0;
-            for (int i = 0; i < 9; i++)
-                sum += (cpf[i] - '0') * (10 - i);
-
-            int remainder = sum % 11;
-            int firstCheckDigit = (remainder < 2) ? 0 : 11 - remainder;
-
-            if (cpf[9] - '0' != firstCheckDigit)
-                return false;
-
-            // Validate second check digit
-            sum = 0;
-            for (int i = 0; i < 10; i++)
-                sum += (cpf[i] - '0') * (11 - i);
-
-            remainder = sum % 11;
-            int secondCheckDigit = (remainder < 2) ? 0 : 11 - remainder;
-
-            return cpf[10] - '0' == secondCheckDigit;
-        }
-
+        PixKeys.Add(pixKey);
     }
 }

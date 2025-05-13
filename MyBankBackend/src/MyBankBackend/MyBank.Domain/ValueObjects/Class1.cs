@@ -1,4 +1,4 @@
-﻿namespace MyBank.Domain
+﻿namespace MyBank.Domain.ValueObjects
 {
     public class Class1
     {

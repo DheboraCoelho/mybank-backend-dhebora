@@ -1,20 +1,21 @@
-﻿using Domain.Core.Enums;
+﻿
+using MyBank.Domain.Enums;
 
-namespace Domain.Core.Entity
+namespace MyBank.Domain.Entities
 {
-    public record PixKey
+    public class PixKey : EntityBase
     {
-        public string Key { get; set; } = string.Empty;
-        public PixKeyType Type { get; set; }
+        public string Key { get; private set; }
+        public PixKeyType Type { get; private set; }
+        public Guid AccountId { get; private set; }
 
-        public PixKey()
+        protected PixKey() { }
+
+        public PixKey(string key, PixKeyType type, Guid accountId)
         {
-            
-        }
-        public PixKey(string key, PixKeyType type)
-        {
-            this.Key = key;
-            this.Type = type;
+            Key = key;
+            Type = type;
+            AccountId = accountId;
         }
     }
 }
