@@ -3,61 +3,72 @@ using MyBank.Domain.Enums;
 using MyBank.Domain.Exceptions;
 using MyBank.Domain.ValueObjects;
 
-
-using MyBank.Domain.Entities;
-
-using System.Transactions;
-
-namespace MyBank.Domain.Entities;
-
-public class Account : EntityBase
+namespace MyBank.Domain.Entities
 {
-    // Propriedades
-    public string Number { get; private set; }
-    public Amount Balance { get; private set; }
-    public Guid CustomerId { get; private set; }
-    public List<Transaction> Transactions { get; private set; } = new();
-    public List<PixKey> PixKeys { get; private set; } = new();
-
-    // Construtor
-    protected Account() { } // Para ORM
-
-    public Account(Guid customerId, string accountNumber, Amount initialBalance = null)
+    public class Account : EntityBase
     {
-        Id = Guid.NewGuid();
-        CustomerId = customerId;
-        Number = accountNumber;
-        Balance = initialBalance ?? new Amount(0, CurrencyType.BRL);
-        CreatedAt = DateTime.UtcNow;
-    }
+        public string Number { get; private set; }
+        public Amount Balance { get; private set; }
+        public Guid CustomerId { get; private set; }
+        public List<Transaction> Transactions { get; private set; } = new();
+        public List<PixKey> PixKeys { get; private set; } = new();
 
-    // Métodos de Domínio
-    public void Deposit(Amount amount)
-    {
-        if (amount.Value <= 0)
-            throw new DomainException("Valor do depósito deve ser positivo");
+        protected Account() { }
 
-        Balance = new Amount(Balance.Value + amount.Value, Balance.Currency);
-        Transactions.Add(new Transaction(amount.Value, TransactionType.Deposit, Id));
-    }
+        public Account(Guid customerId, string accountNumber, Amount? initialBalance = null)
+        {
+            Id = Guid.NewGuid();
+            CustomerId = customerId;
+            Number = accountNumber;
+            Balance = initialBalance ?? new Amount(0, CurrencyType.BRL);
+            CreatedAt = DateTime.UtcNow;
+        }
 
-    public void Withdraw(Amount amount)
-    {
-        if (amount.Value <= 0)
-            throw new DomainException("Valor do saque deve ser positivo");
+        public void Deposit(Amount amount, string? description = null)
+        {
+            if (amount.Value <= 0)
+                throw new DomainException("Valor do depósito deve ser positivo");
 
-        if (Balance.Value < amount.Value)
-            throw new InsufficientBalanceException();
+            Balance = new Amount(Balance.Value + amount.Value, Balance.Currency);
+            Transactions.Add(new Transaction(amount.Value, TransactionType.Deposit, Id, description));
+        }
 
-        Balance = new Amount(Balance.Value - amount.Value, Balance.Currency);
-        Transactions.Add(new Transaction(amount.Value, TransactionType.Withdraw, Id));
-    }
+        public void Withdraw(Amount amount, string? description = null)
+        {
+            if (amount.Value <= 0)
+                throw new DomainException("Valor do saque deve ser positivo");
 
-    public void AddPixKey(PixKey pixKey)
-    {
-        if (PixKeys.Any(k => k.Key == pixKey.Key))
-            throw new DomainException("Chave PIX já cadastrada");
+            if (Balance.Value < amount.Value)
+                throw new InsufficientBalanceException();
 
-        PixKeys.Add(pixKey);
+            Balance = new Amount(Balance.Value - amount.Value, Balance.Currency);
+            Transactions.Add(new Transaction(amount.Value, TransactionType.Withdraw, Id, description));
+        }
+
+        public void TransferTo(Account destinationAccount, Amount amount, string? description = null)
+        {
+            if (amount.Value <= 0)
+                throw new DomainException("Valor da transferência deve ser positivo");
+
+            if (Balance.Value < amount.Value)
+                throw new InsufficientBalanceException();
+
+            if (Balance.Currency != destinationAccount.Balance.Currency)
+                throw new DomainException("As contas devem ter a mesma moeda para transferência");
+
+            Balance = new Amount(Balance.Value - amount.Value, Balance.Currency);
+            destinationAccount.Balance = new Amount(destinationAccount.Balance.Value + amount.Value, destinationAccount.Balance.Currency);
+
+            Transactions.Add(new Transaction(amount.Value, TransactionType.Transfer, Id, description));
+            destinationAccount.Transactions.Add(new Transaction(amount.Value, TransactionType.Transfer, destinationAccount.Id, description));
+        }
+
+        public void AddPixKey(PixKey pixKey)
+        {
+            if (PixKeys.Any(k => k.Key == pixKey.Key))
+                throw new DomainException("Chave PIX já cadastrada");
+
+            PixKeys.Add(pixKey);
+        }
     }
 }
