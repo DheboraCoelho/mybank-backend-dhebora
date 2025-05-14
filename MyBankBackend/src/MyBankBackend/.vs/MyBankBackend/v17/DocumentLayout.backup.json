@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\notificationappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\notificationappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\authappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\authappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\exceptions\\businessexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\exceptions\\businessexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\dtos\\paginationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\dtos\\paginationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\enums\\externalaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\enums\\externalaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +35,8 @@
       "RelativeMoniker": "D:0:0:{286FAA59-B461-48A5-96D9-530D5404DE12}|MyBank.WebApi\\MyBank.WebApi.csproj|solutionrelative:mybank.webapi\\mybank.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\mappings\\domaintodtoprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\mappings\\domaintodtoprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\dtos\\paginationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\dtos\\paginationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\dtos\\errorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,14 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB5A4D2A-7F0C-4AA4-9AF0-2E7EAB7C24B8}|MyBank.Infrastructure\\MyBank.Infrastructure.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.infrastructure\\external\\notifications\\emailnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AB5A4D2A-7F0C-4AA4-9AF0-2E7EAB7C24B8}|MyBank.Infrastructure\\MyBank.Infrastructure.csproj|solutionrelative:mybank.infrastructure\\external\\notifications\\emailnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\notificationappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\notificationappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\services\\authappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|solutionrelative:mybank.application\\services\\authappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89878D64-5391-464A-8326-E3D66BEEF986}|MyBank.Application\\MyBank.Application.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.application\\dtos\\account\\accountresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -155,10 +163,6 @@
       "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\interfaces\\inotificationgateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -173,10 +177,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\exceptions\\businessexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|solutionrelative:mybank.domain\\exceptions\\businessexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50036DB2-1D6E-494F-B222-219C2AFFC330}|MyBank.Domain\\MyBank.Domain.csproj|c:\\users\\dhebo\\documents\\github\\mybank-backend-dhebora\\mybankbackend\\src\\mybankbackend\\mybank.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -271,11 +271,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 43,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PaginationResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\PaginationResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\PaginationResponse.cs",
@@ -288,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "ErrorResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\ErrorResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\ErrorResponse.cs",
@@ -296,12 +296,11 @@
               "RelativeToolTip": "MyBank.Application\\DTOs\\ErrorResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T00:51:32.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T00:51:32.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "TransactionResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Account\\TransactionResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Account\\TransactionResponse.cs",
@@ -309,12 +308,11 @@
               "RelativeToolTip": "MyBank.Application\\DTOs\\Account\\TransactionResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T00:45:42.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T00:45:42.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "TransactionRequest.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Account\\TransactionRequest.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Account\\TransactionRequest.cs",
@@ -326,7 +324,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Email.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\ValueObjects\\Email.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\ValueObjects\\Email.cs",
@@ -338,7 +336,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "IPixService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Interfaces\\IPixService.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Interfaces\\IPixService.cs",
@@ -350,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "ValidateException.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Exceptions\\ValidateException.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Exceptions\\ValidateException.cs",
@@ -362,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 4,
               "Title": "BusinessException.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Exceptions\\BusinessException.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Exceptions\\BusinessException.cs",
@@ -370,11 +368,12 @@
               "RelativeToolTip": "MyBank.Domain\\Exceptions\\BusinessException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T22:31:53.074Z"
+              "WhenOpened": "2025-05-13T22:31:53.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "Cpf.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\ValueObjects\\Cpf.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\ValueObjects\\Cpf.cs",
@@ -386,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "INotificationGateway.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Interfaces\\INotificationGateway.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Interfaces\\INotificationGateway.cs",
@@ -398,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Interfaces\\IAuthService.cs",
@@ -410,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 3,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Interfaces\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Interfaces\\IAccountRepository.cs",
@@ -418,24 +417,25 @@
               "RelativeToolTip": "MyBank.Domain\\Interfaces\\IAccountRepository.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAowBIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T04:01:07.579Z"
+              "WhenOpened": "2025-05-13T04:01:07.579Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "ExternalAccount.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Enums\\ExternalAccount.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Enums\\ExternalAccount.cs",
               "ToolTip": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Enums\\ExternalAccount.cs",
               "RelativeToolTip": "MyBank.Domain\\Enums\\ExternalAccount.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T03:57:49.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "BankTransaction.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Enums\\BankTransaction.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Enums\\BankTransaction.cs",
@@ -443,12 +443,11 @@
               "RelativeToolTip": "MyBank.Domain\\Enums\\BankTransaction.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T03:57:36.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T03:57:36.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "BankTransaction.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Entities\\BankTransaction.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Entities\\BankTransaction.cs",
@@ -484,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "NotificationType.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Enums\\NotificationType.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Enums\\NotificationType.cs",
@@ -508,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Entities\\Transaction.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Entities\\Transaction.cs",
@@ -520,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Amount.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\ValueObjects\\Amount.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\ValueObjects\\Amount.cs",
@@ -532,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "InsufficientBalanceException.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Exceptions\\InsufficientBalanceException.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Exceptions\\InsufficientBalanceException.cs",
@@ -544,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "DomainException.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\Exceptions\\DomainException.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\Exceptions\\DomainException.cs",
@@ -664,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "StripeAdapter.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\External\\PaymentGateways\\StripeAdapter.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\External\\PaymentGateways\\StripeAdapter.cs",
@@ -672,12 +671,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\External\\PaymentGateways\\StripeAdapter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:53:27.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:53:27.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "NotificationDispatcher.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\External\\Notifications\\NotificationDispatcher.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\External\\Notifications\\NotificationDispatcher.cs",
@@ -685,12 +683,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\External\\Notifications\\NotificationDispatcher.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:53:00.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:53:00.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "SmsNotificationService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\External\\Notifications\\SmsNotificationService.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\External\\Notifications\\SmsNotificationService.cs",
@@ -698,12 +695,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\External\\Notifications\\SmsNotificationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:52:46.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:52:46.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "EmailNotificationService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\External\\Notifications\\EmailNotificationService.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\External\\Notifications\\EmailNotificationService.cs",
@@ -711,12 +707,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\External\\Notifications\\EmailNotificationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:52:34.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:52:34.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "MyBankDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\Persistence\\MyBankDbContext.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\Persistence\\MyBankDbContext.cs",
@@ -724,12 +719,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\Persistence\\MyBankDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:51:05.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:51:05.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "NotificationConfig.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\Persistence\\EntityConfigs\\NotificationConfig.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\Persistence\\EntityConfigs\\NotificationConfig.cs",
@@ -737,12 +731,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\Persistence\\EntityConfigs\\NotificationConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:50:46.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:50:46.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "AccountConfig.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\Persistence\\EntityConfigs\\AccountConfig.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\Persistence\\EntityConfigs\\AccountConfig.cs",
@@ -750,12 +743,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\Persistence\\EntityConfigs\\AccountConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:50:30.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:50:30.914Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "NotificationRepository.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\Persistence\\Repositories\\NotificationRepository.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\Persistence\\Repositories\\NotificationRepository.cs",
@@ -763,8 +755,7 @@
               "RelativeToolTip": "MyBank.Infrastructure\\Persistence\\Repositories\\NotificationRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:48:31.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:48:31.903Z"
             },
             {
               "$type": "Document",
@@ -780,7 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\Persistence\\Repositories\\AccountRepository.cs",
               "RelativeDocumentMoniker": "MyBank.Infrastructure\\Persistence\\Repositories\\AccountRepository.cs",
@@ -788,12 +779,11 @@
               "RelativeToolTip": "MyBank.Infrastructure\\Persistence\\Repositories\\AccountRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:47:57.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:47:57.553Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "DomainToDtoProfile.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\Mappings\\DomainToDtoProfile.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\Mappings\\DomainToDtoProfile.cs",
@@ -801,25 +791,24 @@
               "RelativeToolTip": "MyBank.Application\\Mappings\\DomainToDtoProfile.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAIwAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:38:44.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:38:44.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 0,
               "Title": "NotificationAppService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\Services\\NotificationAppService.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\Services\\NotificationAppService.cs",
               "ToolTip": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\Services\\NotificationAppService.cs",
               "RelativeToolTip": "MyBank.Application\\Services\\NotificationAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T02:37:50.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 1,
               "Title": "AuthAppService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\Services\\AuthAppService.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\Services\\AuthAppService.cs",
@@ -838,14 +827,14 @@
               "RelativeDocumentMoniker": "MyBank.Application\\Services\\AccountAppService.cs",
               "ToolTip": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\Services\\AccountAppService.cs",
               "RelativeToolTip": "MyBank.Application\\Services\\AccountAppService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwBAAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T02:36:21.987Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "NotificationResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Notification\\NotificationResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Notification\\NotificationResponse.cs",
@@ -853,12 +842,11 @@
               "RelativeToolTip": "MyBank.Application\\DTOs\\Notification\\NotificationResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:34:54.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:34:54.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "NotificationRequest.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Notification\\NotificationRequest.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Notification\\NotificationRequest.cs",
@@ -866,12 +854,11 @@
               "RelativeToolTip": "MyBank.Application\\DTOs\\Notification\\NotificationRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:34:38.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:34:38.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "NotificationAppService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Account\\NotificationAppService.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Account\\NotificationAppService.cs",
@@ -883,7 +870,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "AuthAppService.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Account\\AuthAppService.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Account\\AuthAppService.cs",
@@ -895,7 +882,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "AccountResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Account\\AccountResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Account\\AccountResponse.cs",
@@ -903,12 +890,11 @@
               "RelativeToolTip": "MyBank.Application\\DTOs\\Account\\AccountResponse.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T02:32:02.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T02:32:02.445Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "TokenResponse.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Auth\\TokenResponse.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Auth\\TokenResponse.cs",
@@ -920,7 +906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\DTOs\\Auth\\LoginRequest.cs",
               "RelativeDocumentMoniker": "MyBank.Application\\DTOs\\Auth\\LoginRequest.cs",
@@ -956,7 +942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Domain\\ValueObjects\\Class1.cs",
               "RelativeDocumentMoniker": "MyBank.Domain\\ValueObjects\\Class1.cs",
@@ -992,7 +978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "MyBank.WebApi.csproj",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.WebApi\\MyBank.WebApi.csproj",
               "RelativeDocumentMoniker": "MyBank.WebApi\\MyBank.WebApi.csproj",
@@ -1000,12 +986,11 @@
               "RelativeToolTip": "MyBank.WebApi\\MyBank.WebApi.csproj",
               "ViewState": "AgIAABIAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-12T22:58:03.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T22:58:03.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "MyBank.Application.csproj",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Application\\MyBank.Application.csproj",
               "RelativeDocumentMoniker": "MyBank.Application\\MyBank.Application.csproj",
@@ -1013,8 +998,7 @@
               "RelativeToolTip": "MyBank.Application\\MyBank.Application.csproj",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-12T22:55:53.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T22:55:53.3Z"
             },
             {
               "$type": "Document",
@@ -1026,8 +1010,7 @@
               "RelativeToolTip": "MyBank.Infrastructure\\MyBank.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-12T22:55:35.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T22:55:35.283Z"
             },
             {
               "$type": "Document",
@@ -1079,7 +1062,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.WebApi\\Program.cs",
               "RelativeDocumentMoniker": "MyBank.WebApi\\Program.cs",

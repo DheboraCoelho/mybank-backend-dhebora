@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Application/DTOs/Notification/NotificationRequest.cs
+// Application/DTOs/Notifications/CreateNotificationRequest.cs
 namespace MyBank.Application.DTOs.Notifications
 {
-    public record NotificationResponse(
-        Guid Id,
+    public record CreateNotificationRequest(
+        Guid UserId,
         string Title,
         string Message,
-        string NotificationType,
-        DateTime CreatedAt,
-        bool IsRead);
+        string NotificationType);
 }
