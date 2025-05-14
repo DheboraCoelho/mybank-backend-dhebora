@@ -35,3 +35,4 @@ C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankB
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.WebApi\obj\Debug\net9.0\MyBank.WebApi.pdb
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.WebApi\obj\Debug\net9.0\MyBank.WebApi.genruntimeconfig.cache
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.WebApi\obj\Debug\net9.0\ref\MyBank.WebApi.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.WebApi\obj\Debug\net9.0\MyBank.WebApi.sourcelink.json

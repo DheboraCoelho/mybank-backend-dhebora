@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBank.Application.DTOs.Notification
+// Application/DTOs/Notification/NotificationResponse.cs
+namespace MyBank.Application.DTOs.Notifications
 {
-    internal class NotificationResponse
-    {
-    }
+    // Application/DTOs/Notifications/NotificationResponse.cs
+    public record NotificationResponse(
+        Guid Id,
+        string Title,
+        string Message,
+        string NotificationType, // <-- Mapeado do Type da entidade
+        DateTime CreatedAt,
+        bool IsRead);
 }

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBank.Application.DTOs.Notification
+// Application/DTOs/Notification/NotificationRequest.cs
+namespace MyBank.Application.DTOs.Notifications
 {
-    internal class NotificationRequest
-    {
-    }
+    public record NotificationRequest(
+        Guid UserId,
+        string Title,
+        string Message,
+        string NotificationType);
 }
