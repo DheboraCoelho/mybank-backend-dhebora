@@ -1,133 +1,94 @@
-﻿// Application/Services/AccountAppService.cs
-using MyBank.Application.DTOs.Accounts;
-using MyBank.Application.DTOs.Shared.MyBank.Application.DTOs.Shared;
-using MyBank.Application.Interfaces;
+﻿using AutoMapper;
 using MyBank.Domain.Entities;
-using MyBank.Domain.Enums;
+using MyBank.Domain.Interfaces;
+using MyBank.Application.DTOs.Accounts;
 using MyBank.Domain.Exceptions;
-using MyBank.Domain.Repositories;
 using MyBank.Domain.ValueObjects;
+using MyBank.Domain.Enums;
+using MyBank.Application.Interfaces;
+using MyBank.Core.ValueObjects;
 
 namespace MyBank.Application.Services
 {
     public class AccountAppService : IAccountAppService
     {
         private readonly IAccountRepository _accountRepository;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly INotificationService _notificationService;
+        private readonly IMapper _mapper;
 
-        public AccountAppService(IAccountRepository accountRepository)
+        public AccountAppService(
+            IAccountRepository accountRepository,
+            ICustomerRepository customerRepository,
+            INotificationService notificationService,
+            IMapper mapper)
         {
             _accountRepository = accountRepository;
+            _customerRepository = customerRepository;
+            _notificationService = notificationService;
+            _mapper = mapper;
         }
 
-        public async Task<AccountResponse?> GetAccountByIdAsync(Guid accountId)
+        public async Task<AccountResponse> CreateAccountAsync(CreateAccountRequest request)
         {
-            var account = await _accountRepository.GetByIdAsync(accountId);
-            if (account == null)
-                return null;
+            var customer = await _customerRepository.GetByCpfAsync(new Cpf(request.Cpf));
+            if (customer == null)
+                throw new DomainException("Cliente não encontrado");
 
-            var transactions = account.Transactions.Select(t => new TransactionResponse(
-                t.Id,
-                t.Amount,
-                t.Type.ToString(),
-                t.Date,
-                t.Description
-            ));
+            var account = new Account(
+                customer.Id,
+                request.AccountType,
+                new Amount(request.InitialBalance, CurrencyType.BRL));
 
-            return new AccountResponse(
-                account.Id,
-                account.Number,
-                account.Balance.Value,
-                account.Balance.Currency.ToString(),
-                account.CustomerId,
-                account.CreatedAt,
-                transactions
-            );
+            await _accountRepository.AddAsync(account);
+
+            await _notificationService.SendAsync(
+                new Notification(
+                    "Conta criada",
+                    $"Sua conta {account.Number} foi aberta com sucesso",
+                    NotificationType.Account,
+                    customer.Id));
+
+            return _mapper.Map<AccountResponse>(account);
         }
 
-        public async Task<TransactionResponse?> DepositAsync(TransactionRequest request)
-        {
-            var account = await _accountRepository.GetByIdAsync(request.AccountId);
-            if (account == null)
-                return null;
-
-            var amount = new Amount(request.Amount, CurrencyType.BRL);
-            account.Deposit(amount, request.Description);
-            await _accountRepository.UpdateAsync(account);
-
-            var transaction = account.Transactions.Last();
-
-            return new TransactionResponse(
-                transaction.Id,
-                transaction.Amount,
-                transaction.Type.ToString(),
-                transaction.Date,
-                transaction.Description
-            );
-        }
-
-        public async Task<TransactionResponse?> WithdrawAsync(WithdrawRequest request)
-        {
-            var account = await _accountRepository.GetByIdAsync(request.AccountId);
-            if (account == null)
-                return null;
-
-            var amount = new Amount(request.Amount, CurrencyType.BRL);
-            account.Withdraw(amount, request.Description);
-            await _accountRepository.UpdateAsync(account);
-
-            var transaction = account.Transactions.Last();
-
-            return new TransactionResponse(
-                transaction.Id,
-                transaction.Amount,
-                transaction.Type.ToString(),
-                transaction.Date,
-                transaction.Description
-            );
-        }
-
-        public async Task<TransactionResponse?> TransferAsync(TransferRequest request)
+        public async Task<TransactionResponse> TransferAsync(TransferRequest request)
         {
             var sourceAccount = await _accountRepository.GetByIdAsync(request.SourceAccountId);
-            var destinationAccount = await _accountRepository.GetByIdAsync(request.DestinationAccountId);
+            var targetAccount = await _accountRepository.GetByNumberAsync(request.TargetAccountNumber);
 
-            if (sourceAccount == null || destinationAccount == null)
-                return null;
+            // Validações
+            if (sourceAccount == null || targetAccount == null)
+                throw new DomainException("Conta origem ou destino inválida");
 
             var amount = new Amount(request.Amount, CurrencyType.BRL);
-            sourceAccount.TransferTo(destinationAccount, amount, request.Description);
+            sourceAccount.Transfer(amount, targetAccount);
 
             await _accountRepository.UpdateAsync(sourceAccount);
-            await _accountRepository.UpdateAsync(destinationAccount);
+            await _accountRepository.UpdateAsync(targetAccount);
 
-            var transaction = sourceAccount.Transactions.Last();
+            // Notificações
+            await SendTransferNotifications(sourceAccount, targetAccount, amount);
 
-            return new TransactionResponse(
-                transaction.Id,
-                transaction.Amount,
-                transaction.Type.ToString(),
-                transaction.Date,
-                transaction.Description
-            );
+            return _mapper.Map<TransactionResponse>(sourceAccount.Transactions.Last());
         }
 
-        public async Task<IEnumerable<TransactionResponse>> GetStatementAsync(Guid accountId, DateRangeRequest period)
+        private async Task SendTransferNotifications(Account source, Account target, Amount amount)
         {
-            var transactions = await _accountRepository.GetTransactionsAsync(accountId, period.StartDate, period.EndDate);
+            var notificationSource = new Notification(
+                "Transferência realizada",
+                $"Você transferiu {amount} para conta {target.Number}",
+                NotificationType.Transaction,
+                source.CustomerId);
 
-            return transactions.Select(t => new TransactionResponse(
-                t.Id,
-                t.Amount,
-                t.Type.ToString(),
-                t.Date,
-                t.Description
-            ));
-        }
+            var notificationTarget = new Notification(
+                "Transferência recebida",
+                $"Você recebeu {amount} da conta {source.Number}",
+                NotificationType.Transaction,
+                target.CustomerId);
 
-        public async Task<decimal> GetCurrentBalanceAsync(Guid accountId)
-        {
-            var account = await _accountRepository.GetByIdAsync(accountId);
-            return account?.Balance.Value ?? 0;
+            await _notificationService.SendAsync(notificationSource);
+            await _notificationService.SendAsync(notificationTarget);
         }
     }
 }
