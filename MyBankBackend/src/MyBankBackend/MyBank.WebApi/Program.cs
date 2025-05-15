@@ -40,6 +40,18 @@ services.AddDbContext<MyBankDbContext>(options =>
 // Registro do repositório
 services.AddScoped<IUserRepository, UserRepository>();
 
+// Configuração JWT
+var jwtSettings = Configuration.GetSection("JwtSettings");
+services.Configure<JwtSettings>(jwtSettings);
+
+services.AddSingleton<ITokenService>(provider =>
+    new TokenService(
+        jwtSettings["SecretKey"],
+        int.Parse(jwtSettings["ExpirationHours"]),
+        jwtSettings["Issuer"],
+        jwtSettings["Audience"]
+    ));
+
 // Registro dos serviços
 services.AddScoped<IAuthAppService, AuthAppService>();
 services.AddScoped<ITokenService, TokenService>();

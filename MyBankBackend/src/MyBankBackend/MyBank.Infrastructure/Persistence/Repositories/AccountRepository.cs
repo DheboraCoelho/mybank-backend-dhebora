@@ -5,6 +5,16 @@ using MyBank.Infrastructure.Data;
 using System;
 using System.Threading.Tasks;
 
+
+
+using System;
+using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
+using System;
+using System.Threading.Tasks;
+
 namespace MyBank.Infrastructure.Data.Repositories
 {
     public class AccountRepository : IAccountRepository
@@ -18,7 +28,8 @@ namespace MyBank.Infrastructure.Data.Repositories
 
         public async Task<Account> GetByIdAsync(Guid id)
         {
-            return await _context.Accounts.FindAsync(id);
+            return await _context.Accounts
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
 
         public async Task<Account> GetByIdWithTransactionsAsync(Guid id)

@@ -11,9 +11,13 @@ using MyBank.Domain.Interfaces;
 using MyBank.Domain.Enums;
 using MyBank.Domain.Exceptions;
 using MyBank.Domain.ValueObjects;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;  // Adicione esta linha
 
-
-
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MyBank.Domain.Entities;
+using System.Threading.Tasks;
 
 namespace MyBank.Infrastructure.Data
 {
@@ -22,28 +26,23 @@ namespace MyBank.Infrastructure.Data
         public MyBankDbContext(DbContextOptions<MyBankDbContext> options)
             : base(options) { }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+
+        // Adicione este método explicitamente
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await base.SaveChangesAsync(cancellationToken);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuração da entidade User
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<Account>(entity =>
             {
-                // Chave primária
-                entity.HasKey(u => u.Id);
-
-                // Índices únicos
-                entity.HasIndex(u => u.Username).IsUnique();
-                entity.HasIndex(u => u.Email).IsUnique();
-                entity.HasIndex(u => u.RefreshToken).IsUnique();
-                entity.HasIndex(u => u.PasswordResetToken).IsUnique();
-
-                // Configurações de campos
-                entity.Property(u => u.Username).IsRequired().HasMaxLength(50);
-                entity.Property(u => u.Email).IsRequired().HasMaxLength(100);
-                entity.Property(u => u.PasswordHash).IsRequired();
-                entity.Property(u => u.RefreshToken).HasMaxLength(100);
-                entity.Property(u => u.PasswordResetToken).HasMaxLength(100);
+                entity.HasKey(a => a.Id);
+                entity.HasMany(a => a.Transactions)
+                      .WithOne()
+                      .HasForeignKey(t => t.AccountId);
             });
         }
     }

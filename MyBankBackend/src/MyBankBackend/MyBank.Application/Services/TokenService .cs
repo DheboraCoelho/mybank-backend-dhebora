@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 using System;
 
+using System;
+using System.IdentityModel.Tokens.Jwt; // Adicione esta diretiva
 using System.Security.Claims;
 using System.Text;
+using Microsoft.IdentityModel.Tokens; // Adicione esta diretiva
 using MyBank.Domain.Entities;
 using MyBank.Application.Interfaces;
 
@@ -17,11 +20,15 @@ namespace MyBank.Application.Services
     {
         private readonly string _secretKey;
         private readonly int _expirationHours;
+        private readonly string _issuer;
+        private readonly string _audience;
 
-        public TokenService(string secretKey, int expirationHours)
+        public TokenService(string secretKey, int expirationHours, string issuer, string audience)
         {
             _secretKey = secretKey;
             _expirationHours = expirationHours;
+            _issuer = issuer;
+            _audience = audience;
         }
 
         public string GenerateToken(User user)
@@ -37,6 +44,8 @@ namespace MyBank.Application.Services
                     new Claim(ClaimTypes.Name, user.Username)
                 }),
                 Expires = DateTime.UtcNow.AddHours(_expirationHours),
+                Issuer = _issuer,
+                Audience = _audience,
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)

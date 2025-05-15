@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 // Infrastructure/Persistence/Repositories/CustomerRepository.cs
 using Microsoft.EntityFrameworkCore;
-using MyBank.Core.ValueObjects;
 using MyBank.Domain.Entities;
 using MyBank.Domain.Interfaces;
-using MyBank.Domain.ValueObjects;
 using MyBank.Infrastructure.Data;
+using System;
+using System.Threading.Tasks;
 
-namespace MyBank.Infrastructure.Persistence.Repositories
+
+namespace MyBank.Infrastructure.Data.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
@@ -23,12 +24,39 @@ namespace MyBank.Infrastructure.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<Customer> GetByCpfAsync(Cpf cpf)
+        public async Task<Customer> GetByIdAsync(Guid id)
         {
-            return await _context.Customers
-                .FirstOrDefaultAsync(c => c.Cpf.Value == cpf.Value);
+            return await _context.Customers.FindAsync(id);
         }
 
-        // Implementar outros métodos da interface...
+        public async Task<Customer> GetByCpfAsync(string cpf)
+        {
+            return await _context.Customers
+                .FirstOrDefaultAsync(c => c.Cpf == cpf);
+        }
+
+        public async Task<Customer> GetByEmailAsync(string email)
+        {
+            return await _context.Customers
+                .FirstOrDefaultAsync(c => c.Email == email);
+        }
+
+        public async Task AddAsync(Customer customer)
+        {
+            await _context.Customers.AddAsync(customer);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Customer customer)
+        {
+            _context.Customers.Update(customer);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(Guid customerId)
+        {
+            return await _context.Customers
+                .AnyAsync(c => c.Id == customerId);
+        }
     }
 }
