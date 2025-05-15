@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace MyBank.Application.DTOs.Accounts
 {
-    public record TransactionRequest(
-        Guid SourceAccountId,
-        Guid TargetAccountId,
-        decimal Amount,
-        string Description = "");
+    public class TransactionRequest
+    {
+        public Guid AccountId { get; set; }  // Corrigido de "Accountld" para "AccountId"
+        public decimal Amount { get; set; }
+        public string Description { get; set; }
+    }
 }

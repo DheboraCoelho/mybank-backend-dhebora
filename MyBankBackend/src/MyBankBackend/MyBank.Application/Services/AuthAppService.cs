@@ -3,64 +3,107 @@ using MyBank.Domain.Entities;
 using MyBank.Domain.Interfaces;
 using MyBank.Application.DTOs.Auth;
 using MyBank.Domain.Exceptions;
-using MyBank.Domain.ValueObjects;
-using MyBank.Domain.Services;
 using MyBank.Application.Interfaces;
-using MyBank.Core.ValueObjects;
 
 namespace MyBank.Application.Services
 {
     public class AuthAppService : IAuthAppService
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
         private readonly IPasswordHasher _passwordHasher;
-        private readonly IMapper _mapper;
+        private readonly IEmailService _emailService;
 
         public AuthAppService(
-            ICustomerRepository customerRepository,
+            IUserRepository userRepository,
             ITokenService tokenService,
             IPasswordHasher passwordHasher,
-            IMapper mapper)
+            IEmailService emailService)
         {
-            _customerRepository = customerRepository;
+            _userRepository = userRepository;
             _tokenService = tokenService;
             _passwordHasher = passwordHasher;
-            _mapper = mapper;
+            _emailService = emailService;
         }
 
-        public async Task<AuthResponse> AuthenticateAsync(LoginRequest request)
+        public async Task<AuthResponse> LoginAsync(LoginRequest request)
         {
-            var cpf = new Cpf(request.Cpf);
-            var customer = await _customerRepository.GetByCpfAsync(cpf);
+            var user = await _userRepository.GetByUsernameAsync(request.Username);
 
-            if (customer == null || !_passwordHasher.Verify(request.Password, customer.PasswordHash))
-                throw new DomainException("CPF ou senha inválidos");
+            if (user == null || !_passwordHasher.Verify(request.Password, user.PasswordHash))
+                throw new DomainException("Credenciais inválidas");
 
-            var token = _tokenService.GenerateToken(customer);
+            // Geração de tokens
+            var token = _tokenService.GenerateToken(user);
             var refreshToken = _tokenService.GenerateRefreshToken();
 
-            customer.UpdateRefreshToken(refreshToken);
-            await _customerRepository.UpdateAsync(customer);
+            // Atualização do usuário (substitui UpdateRefreshToken)
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(7);
+            await _userRepository.UpdateAsync(user);
 
-            return new AuthResponse(
-                token,
-                DateTime.UtcNow.AddHours(2),
-                refreshToken,
-                customer.Id,
-                customer.FullName);
+            return new AuthResponse
+            {
+                Token = token,
+                Expiration = DateTime.UtcNow.AddHours(2),
+                RefreshToken = refreshToken,
+                UserId = user.Id,
+                Username = user.Username
+            };
+        }
+
+        public async Task<AuthResponse> RefreshTokenAsync(RefreshTokenRequest request)
+        {
+            var user = await _userRepository.GetByRefreshTokenAsync(request.RefreshToken);
+
+            if (user == null || user.RefreshTokenExpiry < DateTime.UtcNow)
+                throw new DomainException("Token de refresh inválido ou expirado");
+
+            var newToken = _tokenService.GenerateToken(user);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            // Atualização do usuário
+            user.RefreshToken = newRefreshToken;
+            user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(7);
+            await _userRepository.UpdateAsync(user);
+
+            return new AuthResponse
+            {
+                Token = newToken,
+                Expiration = DateTime.UtcNow.AddHours(2),
+                RefreshToken = newRefreshToken,
+                UserId = user.Id,
+                Username = user.Username
+            };
         }
 
         public async Task RequestPasswordResetAsync(string email)
         {
-            var customer = await _customerRepository.GetByEmailAsync(new Email(email));
-            if (customer == null) return; // Segurança: não revelar que email não existe
+            var user = await _userRepository.GetByEmailAsync(email);
+            if (user == null) return;
 
             var resetToken = _tokenService.GeneratePasswordResetToken();
-            customer.SetPasswordResetToken(resetToken);
-            await _customerRepository.UpdateAsync(customer);
 
-            // Implementar envio de email com o token
+            // Configuração do token (substitui SetPasswordResetToken)
+            user.PasswordResetToken = resetToken;
+            user.PasswordResetTokenExpiry = DateTime.UtcNow.AddHours(1);
+            await _userRepository.UpdateAsync(user);
+
+            await _emailService.SendPasswordResetEmailAsync(email, resetToken);
+        }
+
+        public async Task ResetPasswordAsync(ResetPasswordRequest request)
+        {
+            var user = await _userRepository.GetByPasswordResetTokenAsync(request.Token);
+
+            if (user == null || user.PasswordResetTokenExpiry < DateTime.UtcNow)
+                throw new DomainException("Token de redefinição inválido ou expirado");
+
+            // Atualização da senha (substitui UpdatePassword e ClearPasswordResetToken)
+            user.PasswordHash = _passwordHasher.Hash(request.NewPassword);
+            user.PasswordResetToken = null;
+            user.PasswordResetTokenExpiry = null;
+            await _userRepository.UpdateAsync(user);
         }
     }
 }

@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Application/Interfaces/IAccountAppService.cs
 using MyBank.Application.DTOs.Accounts;
+using MyBank.Application.DTOs.Shared;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MyBank.Application.DTOs.Shared.MyBank.Application.DTOs.Shared;
-
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 
 namespace MyBank.Application.Interfaces
 {

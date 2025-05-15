@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Application/DTOs/Auth/LoginRequest.cs
-// Application/DTOs/Auth/LoginRequest.cs
 namespace MyBank.Application.DTOs.Auth
 {
-    public record LoginRequest(
-        string Cpf,
-        string Password);
+    public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
 }

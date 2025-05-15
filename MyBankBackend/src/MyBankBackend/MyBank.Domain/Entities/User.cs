@@ -1,39 +1,32 @@
 ﻿
 using MyBank.Domain.Enums;
 
+using MyBank.Domain.ValueObjects;
+using System;
+
 namespace MyBank.Domain.Entities
 {
-    public class User : EntityBase
+    public class User
     {
-        // Propriedades
-        public string FullName { get; private set; }
-        public string Email { get; private set; }  // Alterado para string temporariamente
-        public string Cpf { get; private set; }   // Alterado para string temporariamente
-        public string PhoneNumber { get; private set; }
-        public List<Notification> Notifications { get; private set; } = new();
+        public Guid Id { get; set; }
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
+        public string Email { get; set; }
+
+        // Propriedades para refresh token
+        public string RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiry { get; set; }
+
+        // Propriedades para reset de senha
+        public string PasswordResetToken { get; set; }
+        public DateTime? PasswordResetTokenExpiry { get; set; }
 
         // Construtor
-        protected User() { }
-
-        public User(string fullName, string email, string cpf, string phoneNumber)
+        public User(string username, string email, string passwordHash)
         {
-            FullName = fullName;
+            Username = username;
             Email = email;
-            Cpf = cpf;
-            PhoneNumber = phoneNumber;
-        }
-
-        // Métodos de Domínio
-        public void UpdateContactInfo(string phoneNumber, string email)
-        {
-            PhoneNumber = phoneNumber;
-            Email = email;
-            UpdateTimestamps();
-        }
-
-        public void AddNotification(string title, string message, NotificationType type)
-        {
-            Notifications.Add(new Notification(title, message, type, Id));
+            PasswordHash = passwordHash;
         }
     }
 }

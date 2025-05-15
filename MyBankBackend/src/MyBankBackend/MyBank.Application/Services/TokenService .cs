@@ -4,30 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Infrastructure/Services/JwtTokenService.cs
-using System.IdentityModel.Tokens.Jwt;
+using System;
+
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
 using MyBank.Domain.Entities;
-using MyBank.Domain.Interfaces;
+using MyBank.Application.Interfaces;
 
-namespace MyBank.Infrastructure.Services
+namespace MyBank.Application.Services
 {
-    public class JwtTokenService : ITokenService
+    public class TokenService : ITokenService
     {
         private readonly string _secretKey;
-        private readonly string _issuer;
-        private readonly int _expiryMinutes;
+        private readonly int _expirationHours;
 
-        public JwtTokenService(string secretKey, string issuer, int expiryMinutes)
+        public TokenService(string secretKey, int expirationHours)
         {
             _secretKey = secretKey;
-            _issuer = issuer;
-            _expiryMinutes = expiryMinutes;
+            _expirationHours = expirationHours;
         }
 
-        public string GenerateToken(Customer customer)
+        public string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secretKey);
@@ -36,18 +33,27 @@ namespace MyBank.Infrastructure.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, customer.Id.ToString()),
-                    new Claim(ClaimTypes.Name, customer.FullName)
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.Username)
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(_expiryMinutes),
+                Expires = DateTime.UtcNow.AddHours(_expirationHours),
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256Signature),
-                Issuer = _issuer
+                    SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public string GeneratePasswordResetToken()
+        {
+            return Guid.NewGuid().ToString().Replace("-", "");
         }
     }
 }

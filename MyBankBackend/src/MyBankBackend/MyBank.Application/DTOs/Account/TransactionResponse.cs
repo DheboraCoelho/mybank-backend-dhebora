@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 // Application/DTOs/Accounts/TransactionResponse.cs
 namespace MyBank.Application.DTOs.Accounts
 {
-    public record TransactionResponse(
-        Guid Id,
-        decimal Amount,
-        string Type,  // Será mapeado do TransactionType enum
-        DateTime Date,
-        string? Description = null);
+    public class TransactionResponse
+    {
+        public Guid TransactionId { get; set; }
+        public Guid AccountId { get; set; }
+        public decimal Amount { get; set; }
+        public string Type { get; set; } // "Deposit", "Withdrawal", "Transfer"
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
+    }
 }

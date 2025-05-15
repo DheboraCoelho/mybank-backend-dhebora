@@ -1,0 +1,6 @@
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.csproj.AssemblyReference.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.AssemblyInfoInputs.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.AssemblyInfo.cs
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.csproj.CoreCompileInputs.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.sourcelink.json

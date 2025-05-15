@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 // Application/DTOs/Accounts/TransferRequest.cs
 namespace MyBank.Application.DTOs.Accounts
 {
-    public record TransferRequest(
-        Guid SourceAccountId,
-        Guid TargetAccountId,
-        decimal Amount,
-        string Description );
+    public class TransferRequest
+    {
+        public Guid FromAccountId { get; set; }  // Corrigido de "FromAccountld"
+        public Guid ToAccountId { get; set; }    // Corrigido de "ToAccountld"
+        public decimal Amount { get; set; }
+        public string Description { get; set; }
+    }
 }

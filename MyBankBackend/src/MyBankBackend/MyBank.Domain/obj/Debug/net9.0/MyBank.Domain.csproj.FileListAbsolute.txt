@@ -1,0 +1,13 @@
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\bin\Debug\net9.0\MyBank.Domain.deps.json
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\bin\Debug\net9.0\MyBank.Domain.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\bin\Debug\net9.0\MyBank.Domain.pdb
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.csproj.AssemblyReference.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.AssemblyInfoInputs.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.AssemblyInfo.cs
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.sourcelink.json
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\refint\MyBank.Domain.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\MyBank.Domain.pdb
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Domain\obj\Debug\net9.0\ref\MyBank.Domain.dll

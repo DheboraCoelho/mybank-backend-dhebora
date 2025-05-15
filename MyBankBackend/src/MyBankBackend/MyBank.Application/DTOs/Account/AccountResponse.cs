@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 // Application/DTOs/Account/AccountResponse.cs
 namespace MyBank.Application.DTOs.Accounts
 {
-    public record AccountResponse(
-        Guid Id,
-        string Number,
-        decimal Balance,
-        string Currency,
-        Guid CustomerId,
-        DateTime CreatedAt,
-        IEnumerable<TransactionResponse> Transactions);
+    public class AccountResponse
+    {
+        public Guid Id { get; set; }
+        public string AccountNumber { get; set; }
+        public decimal Balance { get; set; }
+        public List<TransactionResponse> Transactions { get; set; }
+        public List<PixKeyResponse> PixKeys { get; set; }
+    }
+
+   
+
+    public class PixKeyResponse
+    {
+        public string Key { get; set; }
+        public string Type { get; set; }
+    }
 }
