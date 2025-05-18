@@ -4,3 +4,13 @@ C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankB
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.AssemblyInfo.cs
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.csproj.CoreCompileInputs.cache
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.sourcelink.json
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\bin\Debug\net9.0\MyBank.Application.deps.json
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\bin\Debug\net9.0\MyBank.Application.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\bin\Debug\net9.0\MyBank.Application.pdb
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\bin\Debug\net9.0\MyBank.Domain.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\bin\Debug\net9.0\MyBank.Domain.pdb
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.A.B8377B33.Up2Date
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\refint\MyBank.Application.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\MyBank.Application.pdb
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\src\MyBankBackend\MyBank.Application\obj\Debug\net9.0\ref\MyBank.Application.dll

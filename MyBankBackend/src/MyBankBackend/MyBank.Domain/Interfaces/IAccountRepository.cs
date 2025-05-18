@@ -5,18 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MyBank.Domain.Entities;
-using MyBank.Domain.Entities;
+
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MyBank.Domain.Interfaces
 {
-    public interface ICustomerRepository
+    public interface IAccountRepository
     {
-        Task<Customer> GetByIdAsync(Guid id);
-        Task<Customer> GetByCpfAsync(string cpf);
-        Task<Customer> GetByEmailAsync(string email);
-        Task AddAsync(Customer customer);
-        Task UpdateAsync(Customer customer);
-        Task<bool> ExistsAsync(Guid customerId);
+        Task<Account> GetByIdAsync(Guid id);
+        Task<Account> GetByIdWithTransactionsAsync(Guid id);
+        Task<Account> GetByAccountNumberAsync(string accountNumber);
+        Task<IEnumerable<Account>> GetByCustomerIdAsync(Guid customerId);
+        Task AddAsync(Account account);
+        Task UpdateAsync(Account account);
+        Task<bool> ExistsAsync(string accountNumber);
     }
 }

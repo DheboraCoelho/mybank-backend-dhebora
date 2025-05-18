@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using System;
-
+// Em Domain/Entities/Customer.cs
 namespace MyBank.Domain.Entities
 {
     public class Customer

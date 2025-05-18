@@ -1,6 +1,5 @@
 ﻿using MyBank.Domain.Enums;
-using System;
-using System.Collections.Generic;
+using MyBank.Domain.Exceptions;
 
 namespace MyBank.Domain.Entities
 {
@@ -10,28 +9,27 @@ namespace MyBank.Domain.Entities
         public string AccountNumber { get; set; }
         public decimal Balance { get; set; }
         public Guid CustomerId { get; set; }
-        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public Customer Customer { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
         public void Deposit(decimal amount)
         {
-            if (amount <= 0) throw new ArgumentException("Valor deve ser positivo");
+            if (amount <= 0) throw new ArgumentException("Amount must be positive");
             Balance += amount;
-            Transactions.Add(new Transaction(amount, TransactionType.Deposit));
         }
 
         public void Withdraw(decimal amount)
         {
-            if (amount <= 0) throw new ArgumentException("Valor deve ser positivo");
-            if (Balance < amount) throw new InvalidOperationException("Saldo insuficiente");
+            if (amount <= 0) throw new ArgumentException("Amount must be positive");
+            if (Balance < amount) throw new InsufficientBalanceException();
             Balance -= amount;
-            Transactions.Add(new Transaction(amount, TransactionType.Withdrawal));
         }
 
         public void Transfer(Account destination, decimal amount)
         {
-            Withdraw(amount);
+            this.Withdraw(amount);
             destination.Deposit(amount);
-            Transactions.Add(new Transaction(amount, TransactionType.Transfer));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Core.Exceptions
+namespace MyBank.Domain.Exceptions
 {
   
     public class InternalException : Exception

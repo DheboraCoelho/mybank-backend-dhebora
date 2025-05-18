@@ -12,6 +12,12 @@ using MyBank.Infrastructure.Data;
 using System;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+using MyBank.Domain.Entities;
+using MyBank.Domain.Interfaces;
+using MyBank.Infrastructure.Data;
+using System;
+using System.Threading.Tasks;
 
 namespace MyBank.Infrastructure.Data.Repositories
 {

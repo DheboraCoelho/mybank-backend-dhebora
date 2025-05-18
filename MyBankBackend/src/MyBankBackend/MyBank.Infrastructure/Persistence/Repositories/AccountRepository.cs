@@ -1,23 +1,13 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
 using MyBank.Domain.Entities;
 using MyBank.Domain.Interfaces;
-using MyBank.Infrastructure.Data;
 using System;
-using System.Threading.Tasks;
-
-
-
-using System;
-using System.Threading.Tasks;
-
-using Microsoft.EntityFrameworkCore;
-
-using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MyBank.Infrastructure.Data.Repositories
 {
-    public class AccountRepository : IAccountRepository
+    public class AccountRepository 
     {
         private readonly MyBankDbContext _context;
 
@@ -28,27 +18,9 @@ namespace MyBank.Infrastructure.Data.Repositories
 
         public async Task<Account> GetByIdAsync(Guid id)
         {
-            return await _context.Accounts
-                .FirstOrDefaultAsync(a => a.Id == id);
+            return await _context.Accounts.FindAsync(id);
         }
 
-        public async Task<Account> GetByIdWithTransactionsAsync(Guid id)
-        {
-            return await _context.Accounts
-                .Include(a => a.Transactions)
-                .FirstOrDefaultAsync(a => a.Id == id);
-        }
-
-        public async Task UpdateAsync(Account account)
-        {
-            _context.Accounts.Update(account);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<bool> ExistsAsync(Guid accountId)
-        {
-            return await _context.Accounts
-                .AnyAsync(a => a.Id == accountId);
-        }
+        // Implementar outros métodos do IAccountRepository
     }
 }

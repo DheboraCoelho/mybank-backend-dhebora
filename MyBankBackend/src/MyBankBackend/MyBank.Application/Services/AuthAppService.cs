@@ -7,7 +7,7 @@ using MyBank.Application.Interfaces;
 
 namespace MyBank.Application.Services
 {
-    public class AuthAppService : IAuthAppService
+    public class AuthAppService 
     {
         private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
@@ -52,30 +52,7 @@ namespace MyBank.Application.Services
             };
         }
 
-        public async Task<AuthResponse> RefreshTokenAsync(RefreshTokenRequest request)
-        {
-            var user = await _userRepository.GetByRefreshTokenAsync(request.RefreshToken);
-
-            if (user == null || user.RefreshTokenExpiry < DateTime.UtcNow)
-                throw new DomainException("Token de refresh inválido ou expirado");
-
-            var newToken = _tokenService.GenerateToken(user);
-            var newRefreshToken = _tokenService.GenerateRefreshToken();
-
-            // Atualização do usuário
-            user.RefreshToken = newRefreshToken;
-            user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(7);
-            await _userRepository.UpdateAsync(user);
-
-            return new AuthResponse
-            {
-                Token = newToken,
-                Expiration = DateTime.UtcNow.AddHours(2),
-                RefreshToken = newRefreshToken,
-                UserId = user.Id,
-                Username = user.Username
-            };
-        }
+        
 
         public async Task RequestPasswordResetAsync(string email)
         {
@@ -92,18 +69,6 @@ namespace MyBank.Application.Services
             await _emailService.SendPasswordResetEmailAsync(email, resetToken);
         }
 
-        public async Task ResetPasswordAsync(ResetPasswordRequest request)
-        {
-            var user = await _userRepository.GetByPasswordResetTokenAsync(request.Token);
 
-            if (user == null || user.PasswordResetTokenExpiry < DateTime.UtcNow)
-                throw new DomainException("Token de redefinição inválido ou expirado");
-
-            // Atualização da senha (substitui UpdatePassword e ClearPasswordResetToken)
-            user.PasswordHash = _passwordHasher.Hash(request.NewPassword);
-            user.PasswordResetToken = null;
-            user.PasswordResetTokenExpiry = null;
-            await _userRepository.UpdateAsync(user);
-        }
     }
 }

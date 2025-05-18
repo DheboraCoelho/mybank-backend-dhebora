@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Threading.Tasks;
 
 namespace MyBank.Infrastructure.Services
 {
@@ -20,9 +19,9 @@ namespace MyBank.Infrastructure.Services
 
         public async Task SendNotificationAsync(string userId, string title, string message)
         {
-            // Implementação do envio por email
+            // Implementação genérica para enviar e-mails
             await _emailService.SendEmailAsync(
-                to: "user@example.com", // Substituir por lógica para obter email do usuário
+                to: userId, // Aqui você pode precisar obter o e-mail do usuário pelo ID
                 subject: title,
                 body: message);
         }

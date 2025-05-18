@@ -11,7 +11,7 @@ using MyBank.Application.Interfaces;
 
 namespace MyBank.Infrastructure.Services
 {
-    public class SmtpEmailService : IEmailService
+    public class SmtpEmailService 
     {
         private readonly EmailSettings _emailSettings;
 

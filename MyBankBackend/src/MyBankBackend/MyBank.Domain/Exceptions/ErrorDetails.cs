@@ -1,4 +1,4 @@
-﻿namespace Domain.Core.Exceptions
+﻿namespace MyBank.Domain.Exceptions
 {
     public record ErrorDetails
     {
