@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+// MyBank.Application/Services/AccountService.cs
+using MyBank.Domain.Account.Entities;
+using MyBank.Application.DTOs;
+using MyBank.Domain.Account.Interfaces;
+using System;
+using System.Threading.Tasks;
+using MyBank.Application.Interfaces;
+
+
+namespace MyBank.Application.Services
+{
+    public class AccountService : IAccountService
+    {
+        private readonly IAccountRepository _accountRepository;
+
+        public AccountService(IAccountRepository accountRepository)
+        {
+            _accountRepository = accountRepository;
+        }
+
+        public async Task<AccountResponse> CreateAccount(CreateAccountRequest request)
+        {
+            var account = new BankAccount(request.AccountNumber, request.Agency, request.OwnerId);
+            await _accountRepository.AddAsync(account);
+
+            return new AccountResponse
+            {
+                Id = account.Id,
+                AccountNumber = account.AccountNumber,
+                Agency = account.Agency,
+                Balance = account.Balance,
+                CreatedAt = account.CreatedAt,
+                IsActive = account.IsActive
+            };
+        }
+
+        public async Task<AccountResponse> GetAccount(string id)
+        {
+            var account = await _accountRepository.GetByIdAsync(id);
+            if (account == null) return null;
+
+            return new AccountResponse
+            {
+                Id = account.Id,
+                AccountNumber = account.AccountNumber,
+                Agency = account.Agency,
+                Balance = account.Balance,
+                CreatedAt = account.CreatedAt,
+                IsActive = account.IsActive
+            };
+        }
+
+        public async Task Deposit(string accountId, TransactionRequest request)
+        {
+            var account = await _accountRepository.GetByIdAsync(accountId);
+            if (account == null)
+                throw new ArgumentException("Conta não encontrada");
+
+            account.Deposit(request.Amount);
+            await _accountRepository.UpdateAsync(account);
+        }
+
+        public async Task Withdraw(string accountId, TransactionRequest request)
+        {
+            var account = await _accountRepository.GetByIdAsync(accountId);
+            if (account == null)
+                throw new ArgumentException("Conta não encontrada");
+
+            account.Withdraw(request.Amount);
+            await _accountRepository.UpdateAsync(account);
+        }
+
+        public async Task DeactivateAccount(string accountId)
+        {
+            var account = await _accountRepository.GetByIdAsync(accountId);
+            if (account == null)
+                throw new ArgumentException("Conta não encontrada");
+
+            account.Deactivate();
+            await _accountRepository.UpdateAsync(account);
+        }
+    }
+}

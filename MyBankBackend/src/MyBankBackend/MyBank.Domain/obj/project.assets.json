@@ -2833,6 +2833,7 @@
       "Microsoft.AspNetCore.DataProtection >= 9.0.4",
       "Microsoft.EntityFrameworkCore >= 9.0.5",
       "Microsoft.EntityFrameworkCore.Abstractions >= 9.0.5",
+      "Microsoft.EntityFrameworkCore.Relational >= 9.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.5",
       "Microsoft.IdentityModel.JsonWebTokens >= 8.9.0",
       "Microsoft.IdentityModel.Tokens >= 8.9.0"
@@ -2902,6 +2903,10 @@
             "version": "[9.0.5, )"
           },
           "Microsoft.EntityFrameworkCore.Abstractions": {
+            "target": "Package",
+            "version": "[9.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[9.0.5, )"
           },

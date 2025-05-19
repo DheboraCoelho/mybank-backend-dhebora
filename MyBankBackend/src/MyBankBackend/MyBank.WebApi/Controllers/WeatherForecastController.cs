@@ -1,29 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.AspNetCore.Mvc;
-using MyBank.Application.DTOs.Accounts;
+
 using MyBank.Application.Interfaces;
-using System;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MyBank.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class AccountsController : ControllerBase
+    [Route("[controller]")]
+    public class WeatherForecastController : ControllerBase
     {
-        private readonly IAccountAppService _accountAppService;
-
-        public AccountsController(IAccountAppService accountAppService)
+        private static readonly string[] Summaries = new[]
         {
-            _accountAppService = accountAppService;
-        }
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+        [HttpGet(Name = "GetWeatherForecast")]
+        public IEnumerable<WeatherForecast> Get()
         {
-            var account = await _accountAppService.GetAccountByIdAsync(id);
-            return Ok(account);
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)), // Fix: Convert DateTime to DateOnly
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
         }
     }
 }

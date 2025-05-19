@@ -1,32 +1,42 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+// MyBank.Infrastructure/DependencyInjection.cs
 using Microsoft.Extensions.DependencyInjection;
 using MyBank.Application.Interfaces;
-using MyBank.Domain.Interfaces;
+using MyBank.Application.Services;
+using MyBank.Domain.Account.Interfaces;
+using MyBank.Domain.Auth.Interfaces;
+using MyBank.Domain.Notification.Interfaces;
+using MyBank.Domain.Pix.Interfaces;
 using MyBank.Infrastructure.Data;
 using MyBank.Infrastructure.Data.Repositories;
-using MyBank.Infrastructure.Services;
+
 
 namespace MyBank.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, string connectionString)
         {
-            // Database
-            services.AddDbContext<MyBankDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
-            // Repositories
-            services.AddScoped<IUserRepository, UserRepository>();
+            // Registrar outros serviços de infraestrutura aqui
             services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPixRepository, PixRepository>();
+            services.AddScoped<INotificationRepository, NotificationRepository>();
 
-            // Servicesa
-            services.AddScoped<ITokenService, JwtTokenService>();
-            services.AddScoped<IEmailService, EmailService>();
-            services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
-
+            // Registrar serviços
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IPixService, PixService>();
+            services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IAuthService, AuthService>();
             return services;
         }
     }

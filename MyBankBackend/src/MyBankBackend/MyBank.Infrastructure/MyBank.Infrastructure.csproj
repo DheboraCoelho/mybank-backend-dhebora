@@ -10,14 +10,20 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.5" />
     <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.9.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.9.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\tests\MyBank.Infrastructure.Tests\MyBank.Infrastructure.Tests.csproj" />
     <ProjectReference Include="..\MyBank.Application\MyBank.Application.csproj" />
     <ProjectReference Include="..\MyBank.Domain\MyBank.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
