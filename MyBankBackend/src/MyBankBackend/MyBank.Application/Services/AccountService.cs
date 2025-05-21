@@ -11,6 +11,7 @@ using MyBank.Domain.Account.Interfaces;
 using System;
 using System.Threading.Tasks;
 using MyBank.Application.Interfaces;
+using MyBank.Domain.Account.ValueObjects;
 
 
 namespace MyBank.Application.Services
@@ -26,15 +27,18 @@ namespace MyBank.Application.Services
 
         public async Task<AccountResponse> CreateAccount(CreateAccountRequest request)
         {
-            var account = new BankAccount(request.AccountNumber, request.Agency, request.OwnerId);
+            var accountNumber = AccountNumber.Create(request.AccountNumber);
+            var agency = Agency.Create(request.Agency);
+
+            var account = new BankAccount(accountNumber, agency, request.OwnerId);
             await _accountRepository.AddAsync(account);
 
             return new AccountResponse
             {
                 Id = account.Id,
-                AccountNumber = account.AccountNumber,
-                Agency = account.Agency,
-                Balance = account.Balance,
+                AccountNumber = account.Number.Value,
+                Agency = account.Agency.Value,
+                Balance = account.Balance.Amount,
                 CreatedAt = account.CreatedAt,
                 IsActive = account.IsActive
             };
@@ -48,9 +52,9 @@ namespace MyBank.Application.Services
             return new AccountResponse
             {
                 Id = account.Id,
-                AccountNumber = account.AccountNumber,
-                Agency = account.Agency,
-                Balance = account.Balance,
+                AccountNumber = account.Number.Value,
+                Agency = account.Agency.Value,
+                Balance = account.Balance.Amount,
                 CreatedAt = account.CreatedAt,
                 IsActive = account.IsActive
             };
@@ -62,7 +66,8 @@ namespace MyBank.Application.Services
             if (account == null)
                 throw new ArgumentException("Conta não encontrada");
 
-            account.Deposit(request.Amount);
+            var amount = Money.Create(request.Amount);
+            account.Deposit(amount);
             await _accountRepository.UpdateAsync(account);
         }
 
@@ -72,7 +77,8 @@ namespace MyBank.Application.Services
             if (account == null)
                 throw new ArgumentException("Conta não encontrada");
 
-            account.Withdraw(request.Amount);
+            var amount = Money.Create(request.Amount);
+            account.Withdraw(amount);
             await _accountRepository.UpdateAsync(account);
         }
 
@@ -86,4 +92,4 @@ namespace MyBank.Application.Services
             await _accountRepository.UpdateAsync(account);
         }
     }
-}
+    }

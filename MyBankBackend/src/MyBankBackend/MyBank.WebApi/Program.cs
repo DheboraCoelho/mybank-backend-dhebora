@@ -1,20 +1,23 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using MyBank.Infrastructure;
-using MyBank.Infrastructure.Data;
-using MyBank.Application.Services;
 using MyBank.Application.Interfaces;
-using MyBank.Domain.Notification.Interfaces;
+using MyBank.Application.Services;
 using MyBank.Domain.Account.Interfaces;
 using MyBank.Domain.Auth.Interfaces;
+using MyBank.Domain.Notification.Interfaces;
 using MyBank.Domain.Pix.Interfaces;
+using MyBank.Infrastructure.Data;
 using MyBank.Infrastructure.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
-
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure apenas o necessário para sua API bancária
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Configure Swagger with JWT support
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -24,39 +27,96 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API para operações bancárias",
         Contact = new OpenApiContact { Name = "Suporte", Email = "suporte@mybank.com" }
     });
+
+    // Add JWT Authentication to Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
+
 // Configure database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddInfrastructure(connectionString);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 
 // Register application services
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IPixService, PixService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-// Registrar repositórios
+
+// Register repositories
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPixRepository, PixRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+
 var app = builder.Build();
 
-// Configuração do pipeline
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyBank API v1");
-        c.DisplayRequestDuration(); // Mostra tempo de resposta
+        c.DisplayRequestDuration();
+        // Enable the Authorize button in Swagger UI
+        c.OAuthClientId("swagger-ui");
+        c.OAuthAppName("Swagger UI");
     });
 }
 
 app.UseHttpsRedirection();
+
+// IMPORTANT: UseAuthentication before UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
-//Apply migrations
-// Apply migrations
+
+// Apply database migrations
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -64,6 +124,9 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<AppDbContext>();
         context.Database.Migrate();
+
+        // Optional: Seed initial data
+        // await SeedData.Initialize(services);
     }
     catch (Exception ex)
     {
@@ -71,4 +134,5 @@ using (var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred while migrating the database.");
     }
 }
+
 app.Run();

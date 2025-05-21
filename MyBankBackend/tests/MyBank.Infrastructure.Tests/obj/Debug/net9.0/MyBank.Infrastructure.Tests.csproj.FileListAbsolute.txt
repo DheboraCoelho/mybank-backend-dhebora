@@ -148,3 +148,4 @@ C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\tests\MyBan
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\tests\MyBank.Infrastructure.Tests\obj\Debug\net9.0\MyBank.Infrastructure.Tests.pdb
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\tests\MyBank.Infrastructure.Tests\obj\Debug\net9.0\MyBank.Infrastructure.Tests.genruntimeconfig.cache
 C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\tests\MyBank.Infrastructure.Tests\obj\Debug\net9.0\ref\MyBank.Infrastructure.Tests.dll
+C:\Users\Dhebo\Documents\GitHub\mybank-backend-dhebora\MyBankBackend\tests\MyBank.Infrastructure.Tests\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

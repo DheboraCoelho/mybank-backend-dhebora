@@ -11,8 +11,8 @@ namespace MyBank.Application.DTOs
     public class PixRequest
     {
         public string SenderAccountId { get; set; }
-        public string ReceiverKey { get; set; } // Chave PIX (CPF, email, telefone, etc.)
-        public decimal Amount { get; set; }
+        public string ReceiverKey { get; set; }
+        public decimal Amount { get; set; } // Será convertido para Money
     }
 
     public class PixResponse

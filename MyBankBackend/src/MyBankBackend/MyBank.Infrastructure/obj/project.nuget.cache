@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "phMzemtqG24=",
+  "dgSpecHash": "BrUAalIfHCQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Dhebo\\Documents\\GitHub\\mybank-backend-dhebora\\MyBankBackend\\src\\MyBankBackend\\MyBank.Infrastructure\\MyBank.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Dhebo\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
+    "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.5\\microsoft.aspnetcore.authentication.jwtbearer.9.0.5.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.4\\microsoft.aspnetcore.cryptography.internal.9.0.4.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\9.0.4\\microsoft.aspnetcore.dataprotection.9.0.4.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\9.0.4\\microsoft.aspnetcore.dataprotection.abstractions.9.0.4.nupkg.sha512",
@@ -39,8 +40,8 @@
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.9.0\\microsoft.identitymodel.abstractions.8.9.0.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.9.0\\microsoft.identitymodel.jsonwebtokens.8.9.0.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.logging\\8.9.0\\microsoft.identitymodel.logging.8.9.0.nupkg.sha512",
-    "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.35.0\\microsoft.identitymodel.protocols.6.35.0.nupkg.sha512",
-    "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.35.0\\microsoft.identitymodel.protocols.openidconnect.6.35.0.nupkg.sha512",
+    "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.1\\microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
+    "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\8.0.1\\microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.9.0\\microsoft.identitymodel.tokens.8.9.0.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.net.test.sdk\\17.12.0\\microsoft.net.test.sdk.17.12.0.nupkg.sha512",
     "C:\\Users\\Dhebo\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",

@@ -8,6 +8,7 @@ using MyBank.Domain.Pix.Interfaces;
 using MyBank.Application.DTOs;
 using MyBank.Application.Interfaces;
 using MyBank.Domain.Account.Interfaces;
+using MyBank.Domain.Account.ValueObjects;
 
 namespace MyBank.Application.Services
 {
@@ -28,27 +29,29 @@ namespace MyBank.Application.Services
             if (senderAccount == null)
                 throw new ArgumentException("Conta do remetente não encontrada");
 
-            if (senderAccount.Balance < request.Amount)
+            var amount = Money.Create(request.Amount);
+
+            if (senderAccount.Balance.Amount < amount.Amount)
                 throw new InvalidOperationException("Saldo insuficiente");
 
             var pixTransaction = new PixTransaction(
                 request.SenderAccountId,
                 request.ReceiverKey,
-                request.Amount);
+                amount.Amount); // Aqui usamos amount.Amount para manter compatibilidade
 
             await _pixRepository.AddAsync(pixTransaction);
 
             try
             {
-                senderAccount.Withdraw(request.Amount);
+                senderAccount.Withdraw(amount);
                 await _accountRepository.UpdateAsync(senderAccount);
 
                 pixTransaction.Complete();
             }
-            catch
+            catch (Exception ex)
             {
                 pixTransaction.Fail();
-                throw;
+                throw new InvalidOperationException("Falha ao processar PIX", ex);
             }
             finally
             {
