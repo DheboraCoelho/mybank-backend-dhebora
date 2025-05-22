@@ -140,6 +140,10 @@ Durante o desenvolvimento, enfrentei limitações de tempo e aprendizado. Alguma
 
 > “Conforme eu aprendia mais sobre essas arquiteturas, percebi que meu projeto ainda estava distante da estrutura ideal, mas isso também me motivou a seguir aprendendo. Mesmo com dificuldades, me orgulhei muito de ter chegado até aqui com um projeto funcional e coerente.”
 
+## ✅ Conclusão
+
+> “Apesar das limitações, o projeto cumpre os principais requisitos funcionais do desafio. Escolhi seguir com Clean Architecture + DDD como forma de estudo e aprendizado prático de padrões amplamente usados no mercado. O código ainda tem muito espaço para evolução, mas representa minha evolução como desenvolvedora durante o desafio.”
+
 
 
 ## 📄 Referências Utilizadas
