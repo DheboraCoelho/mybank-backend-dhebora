@@ -11,7 +11,12 @@ using MyBank.Infrastructure.Data;
 using MyBank.Infrastructure.Data.Repositories;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using MyBank.Domain.Auth.Entities;
+using MyBank.Domain.Account.ValueObjects.Shared;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -25,7 +30,7 @@ builder.Services.AddSwaggerGen(c =>
         Title = "MyBank API",
         Version = "v1",
         Description = "API para operações bancárias",
-        Contact = new OpenApiContact { Name = "Suporte", Email = "suporte@mybank.com" }
+        Contact = new OpenApiContact { Name = "Suporte", Email = "dheboracoelho@gmail.com" }
     });
 
     // Add JWT Authentication to Swagger
@@ -53,6 +58,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 
 // Configure database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -92,6 +98,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPixRepository, PixRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
@@ -125,8 +132,7 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<AppDbContext>();
         context.Database.Migrate();
 
-        // Optional: Seed initial data
-        // await SeedData.Initialize(services);
+        
     }
     catch (Exception ex)
     {

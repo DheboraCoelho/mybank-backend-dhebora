@@ -1,4 +1,5 @@
-﻿using MyBank.Domain.Account.ValueObjects;
+﻿using MyBank.Domain.Account.ValueObjects.Account;
+using MyBank.Domain.Account.ValueObjects.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;

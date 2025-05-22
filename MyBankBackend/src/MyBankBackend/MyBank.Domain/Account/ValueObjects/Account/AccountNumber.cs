@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace MyBank.Domain.Account.ValueObjects
+namespace MyBank.Domain.Account.ValueObjects.Account
 {
     public sealed class AccountNumber
     {

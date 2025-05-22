@@ -11,7 +11,8 @@ using MyBank.Domain.Account.Interfaces;
 using System;
 using System.Threading.Tasks;
 using MyBank.Application.Interfaces;
-using MyBank.Domain.Account.ValueObjects;
+using MyBank.Domain.Account.ValueObjects.Account;
+using MyBank.Domain.Account.ValueObjects.Shared;
 
 
 namespace MyBank.Application.Services
@@ -56,7 +57,9 @@ namespace MyBank.Application.Services
                 Agency = account.Agency.Value,
                 Balance = account.Balance.Amount,
                 CreatedAt = account.CreatedAt,
-                IsActive = account.IsActive
+                IsActive = account.IsActive,
+                Currency = account.Balance.Currency.ToString(),
+                OwnerId = account.OwnerId
             };
         }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System;
 using System.Text.RegularExpressions;
 
-namespace MyBank.Domain.Account.ValueObjects
+namespace MyBank.Domain.Account.ValueObjects.Account
 {
     public sealed class Agency
     {

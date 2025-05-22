@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-// MyBankAPI.Infrastructure/Data/Repositories/AccountRepository.cs
 using Microsoft.EntityFrameworkCore;
 using MyBank.Domain.Account.Entities;
 using MyBank.Domain.Account.Interfaces;
-
 using System.Threading.Tasks;
-using MyBank.Domain.Account.Entities;
-using MyBank.Domain.Account.Interfaces;
 using MyBank.Infrastructure.Data;
 
 namespace MyBank.Infrastructure.Data.Repositories

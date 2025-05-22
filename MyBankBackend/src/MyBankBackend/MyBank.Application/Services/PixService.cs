@@ -8,7 +8,7 @@ using MyBank.Domain.Pix.Interfaces;
 using MyBank.Application.DTOs;
 using MyBank.Application.Interfaces;
 using MyBank.Domain.Account.Interfaces;
-using MyBank.Domain.Account.ValueObjects;
+using MyBank.Domain.Account.ValueObjects.Shared;
 
 namespace MyBank.Application.Services
 {
