@@ -109,11 +109,37 @@ Durante o desenvolvimento, enfrentei limitações de tempo e aprendizado. Alguma
 * Pouca **lógica de negócio dentro das entidades** do Domain.
 * Falta de **injeção de dependência invertida** em alguns pontos (D de SOLID).
 * Pouco uso de **interfaces desacopladas** entre as camadas.
+## ❌ DDD Incompleto
+* Ubiquitous Language ainda não está totalmente claro no código.
+* Aggregates e Value Objects poderiam estar melhor definidos.
+* Faltam Services de Domínio para encapsular regras de negócio complexas.
+
+## ❌ Clean Architecture Incompleta
+* Algumas dependências ainda apontam do centro para a borda, violando o conceito de dependência inversa.
+* A separação entre camadas poderia ser mais rígida com interfaces bem definidas.
+* Algumas lógicas de negócio ainda estão dentro dos Controllers.
+
+## 📚 Fontes consultadas:
+* DDD do jeito certo - YouTube
+* SOLID e DIP - DTI Digital
+* Martin Fowler sobre DDD
+* Clean Architecture por Gabriel Lemos
+* FullCycle sobre DDD
+* FullCycle sobre Clean Architecture
 
 
-## 🚀 Minha Trajetória no Desafio
+## 📖 Minha Trajetória no Desafio
 
-> “Comecei sem saber direito o que era uma API. Nunca tinha trabalhado no Visual Studio com projetos em .NET. O desafio de estrutura e arquitetura foi grande. Conforme fui aprendendo sobre Clean Architecture e DDD, percebi que minha implementação estava distante desses padrões, mas isso não me impediu de continuar e terminar. Foi um processo de muito aprendizado.”
+> “Antes deste desafio, eu não tinha muita familiaridade com APIs, nem com ferramentas como o Visual Studio e o .NET Core. No início, eu não sabia nem como criar um projeto de API, então o processo foi cheio de descobertas e superações.”
+
+## Desafios que enfrentei:
+* Ambientação com Visual Studio e .NET.
+* Estruturação da Clean Architecture sem orientação direta.
+* Compreensão do DDD na prática.
+* Configuração do EF Core e bancos de dados.
+
+> “Conforme eu aprendia mais sobre essas arquiteturas, percebi que meu projeto ainda estava distante da estrutura ideal, mas isso também me motivou a seguir aprendendo. Mesmo com dificuldades, me orgulhei muito de ter chegado até aqui com um projeto funcional e coerente.”
+
 
 
 ## 📄 Referências Utilizadas
