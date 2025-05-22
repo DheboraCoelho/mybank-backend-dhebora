@@ -4,16 +4,15 @@
 
 Este repositório representa a minha entrega para o desafio **MyBank**, onde optei por construir uma API utilizando os conceitos de **Clean Architecture** com aplicação básica de **Domain-Driven Design (DDD)**. Apesar das limitações de tempo e experiência, busquei estruturar o projeto de forma escalável, organizada e orientada a boas práticas de arquitetura.
 
-## ⚖️ Objetivo Inicial
+## 🧠 Ideia Inicial
 
-A ideia inicial era:
+Minha intenção desde o início foi estruturar a aplicação com base na Clean Architecture, organizando o código em camadas separadas por responsabilidades, e aplicar conceitos básicos de Domain-Driven Design, como a separação de domínio, aplicação e infraestrutura.
 
-* Utilizar uma arquitetura **Clean** com separação clara de responsabilidades.
-* Aplicar conceitos básicos de **DDD**, como Entities, Value Objects e Interfaces.
-* Reaproveitar trechos e ideias do repositório original do desafio: [`luisfabiosm/POC-MyBank`](https://github.com/luisfabiosm/POC-MyBank)
-* Aplicar princípios **SOLID**, principalmente a **Inversão de Dependência**.
+Além disso, procurei reutilizar algumas partes do código do repositório base luisfabiosm/POC-MyBank, principalmente como referência de comportamento esperado, estrutura de entidades e comandos, mas com adaptações para refletir melhor os princípios de separação de responsabilidades.
 
-## 🌐 Estrutura do Projeto
+## 🏗️ Estrutura do Projeto
+
+Abaixo está a estrutura do projeto com a explicação de cada camada e subpastas importantes:
 
 ```
 MyBankBackend/
@@ -77,27 +76,45 @@ MyBankBackend/
 * **Responsável por**: Interface com o mundo externo (Controllers, Middlewares).
 * **Contém**: Configuração do pipeline, endpoints, autenticação, etc.
 
-## ❌ O que faltou para ser um DDD/Clean completo?
-
-* Ausência de **casos de uso** bem definidos na camada Application.
-* Pouca **lógica de negócio dentro das entidades** do Domain.
-* Falta de **injeção de dependência invertida** em alguns pontos (D de SOLID).
-* Pouco uso de **interfaces desacopladas** entre as camadas.
-
-## 🚀 Minha Trajetória no Desafio
-
-> “Comecei sem saber direito o que era uma API. Nunca tinha trabalhado no Visual Studio com projetos em .NET. O desafio de estrutura e arquitetura foi grande. Conforme fui aprendendo sobre Clean Architecture e DDD, percebi que minha implementação estava distante desses padrões, mas isso não me impediu de continuar e terminar. Foi um processo de muito aprendizado.”
-
 ## ⚙️ Configuração
 
 * A aplicação utiliza o sistema padrão de configuração do **ASP.NET Core**.
 * Arquivo principal: `appsettings.json`.
 * Contém as configurações de conexão com banco e JWT.
 
+  
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyBankDB;"
+  },
+  "Jwt": {
+    "Key": "chave_secreta_32_chars",
+    "Issuer": "MyBankAPI",
+    "Audience": "MyBankUsers"
+  }
+}
+
+```
 ## 📃 Documentação da API
 
 * Ainda não implementada.
 * Sugestão futura: utilizar **Swagger** para documentação dos endpoints.
+
+
+## ⛔ O que Faltou para ser um DDD e Clean Architecture Completo
+
+Durante o desenvolvimento, enfrentei limitações de tempo e aprendizado. Algumas coisas importantes que ainda faltam ou podem ser melhoradas segundo os links estudados:
+* Ausência de **casos de uso** bem definidos na camada Application.
+* Pouca **lógica de negócio dentro das entidades** do Domain.
+* Falta de **injeção de dependência invertida** em alguns pontos (D de SOLID).
+* Pouco uso de **interfaces desacopladas** entre as camadas.
+
+
+## 🚀 Minha Trajetória no Desafio
+
+> “Comecei sem saber direito o que era uma API. Nunca tinha trabalhado no Visual Studio com projetos em .NET. O desafio de estrutura e arquitetura foi grande. Conforme fui aprendendo sobre Clean Architecture e DDD, percebi que minha implementação estava distante desses padrões, mas isso não me impediu de continuar e terminar. Foi um processo de muito aprendizado.”
+
 
 ## 📄 Referências Utilizadas
 
