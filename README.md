@@ -145,7 +145,6 @@ Durante o desenvolvimento, enfrentei limitações de tempo e aprendizado. Alguma
 > “Apesar das limitações, o projeto cumpre os principais requisitos funcionais do desafio. Escolhi seguir com Clean Architecture + DDD como forma de estudo e aprendizado prático de padrões amplamente usados no mercado. O código ainda tem muito espaço para evolução, mas representa minha evolução como desenvolvedora durante o desafio.”
 
 
-
 ## 📄 Referências Utilizadas
 
 * [https://fullcycle.com.br/o-que-e-clean-architecture/](https://fullcycle.com.br/o-que-e-clean-architecture/)
